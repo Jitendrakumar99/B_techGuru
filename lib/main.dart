@@ -1,41 +1,219 @@
 import 'package:flutter/material.dart';
+import 'adiyapage.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(EducationApp());
+}
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-  // This widget is the root of your application.
+class EducationApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // Application name
-      title: 'Flutter Hello World',
-      // Application theme data, you can set the colors for the application as
-      // you want
+      title: 'Education App',
       theme: ThemeData(
-        // useMaterial3: false,
         primarySwatch: Colors.blue,
       ),
-      // A widget which will be started on application startup
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: HomePage(),
     );
   }
 }
 
-class MyHomePage extends StatelessWidget {
-  final String title;
-  const MyHomePage({super.key, required this.title});  
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('B-tech Guru'),
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            const DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.blue,
+              ),
+              child: Text(
+                'B-tech Guru',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 26,
+                ),
+              ),
+            ),
+            buildListTile(context, Icons.home, 'Home', HomePage()),
+            buildListTile(context, Icons.school, 'Courses', CoursesPage()),
+            buildListTile(context, Icons.notifications, 'Notification',
+                NotificationPage()),
+            buildListTile(context, Icons.settings, 'Settings', SettingsPage()),
+          ],
+        ),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            const Text(
+              'Welcome to the B-tech Guru',
+              style: TextStyle(fontSize: 24),
+            ),
+            const SizedBox(height: 20),
+            Expanded(
+              child: ListView(
+                children: <Widget>[
+                  ListTile(
+                    leading: const Icon(Icons.school),
+                    title: const Text('JNTU Kakinada'),
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => AdityaPage(
+                                universityName: 'adity',
+                              )),
+                    ),
+                  ),
+                  ListTile(
+                    leading: const Icon(Icons.school),
+                    title: const Text('Aditya university'),
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => AdityaPage(
+                                universityName: 'adity',
+                              )),
+                    ),
+                  ),
+                  ListTile(
+                    leading: const Icon(Icons.school),
+                    title: const Text('Aditya university'),
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => AdityaPage(
+                                universityName: 'adity',
+                              )),
+                    ),
+                  ),
+                  ListTile(
+                    leading: const Icon(Icons.school),
+                    title: const Text('Aditya university'),
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => AdityaPage(
+                                universityName: 'adity',
+                              )),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  ListTile buildListTile(
+      BuildContext context, IconData icon, String title, Widget destination) {
+    return ListTile(
+      leading: Icon(icon),
+      title: Text(title),
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => destination),
+        );
+      },
+    );
+  }
+
+  ListTile buildCourseListTile(BuildContext context, String course) {
+    return ListTile(
+      leading: const Icon(Icons.school),
+      title: Text(course),
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => CourseDetailPage(course: course)),
+        );
+      },
+    );
+  }
+}
+
+class CoursesPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Courses'),
+      ),
+      body: const Center(
+        child: Text(
+          'List of Courses',
+          style: TextStyle(fontSize: 24),
+        ),
+      ),
+    );
+  }
+}
+
+class NotificationPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Notification'),
+      ),
+      body: const Center(
+        child: Text(
+          'List of Notifications',
+          style: TextStyle(fontSize: 24),
+        ),
+      ),
+    );
+  }
+}
+
+class SettingsPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Settings'),
+      ),
+      body: const Center(
+        child: Text(
+          'Settings Page',
+          style: TextStyle(fontSize: 24),
+        ),
+      ),
+    );
+  }
+}
+
+class CourseDetailPage extends StatelessWidget {
+  final String course;
+
+  CourseDetailPage({required this.course});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        // The title text which will be shown on the action bar
-        title: Text(title),
+        title: Text('$course Details'),
       ),
       body: Center(
         child: Text(
-          'Hello, World!',
+          'Details of $course',
+          style: const TextStyle(fontSize: 24),
         ),
       ),
     );
