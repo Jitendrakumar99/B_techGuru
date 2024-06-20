@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:helloworld/subject1st/11sub.dart';
+import 'package:helloworld/subject1st/11phy.dart';
+import 'package:helloworld/subject1st/11che.dart';
+import 'package:helloworld/subject1st/11eng.dart';
+import 'package:helloworld/subject1st/11c.dart';
+import 'package:helloworld/subject1st/11m1.dart';
 
 class FirstSemPage extends StatelessWidget {
   final List<String> semesters = ['Physics', 'Chemestry', 'English', 'M1', 'C'];
@@ -9,6 +13,18 @@ class FirstSemPage extends StatelessWidget {
     switch (semester) {
       case 'Physics':
         page = Physics();
+        break;
+      case 'Chemestry':
+        page = Chemestry();
+        break;
+      case 'English':
+        page = English();
+        break;
+      case 'M1':
+        page = M1();
+        break;
+      case 'C':
+        page = C();
         break;
       default:
         page = Physics();

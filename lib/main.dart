@@ -58,9 +58,24 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'Welcome to the B-tech Guru',
-              style: TextStyle(fontSize: 24),
+            Container(
+              padding: const EdgeInsets.all(16.0),
+              decoration: BoxDecoration(
+                color: Colors.lightBlueAccent,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.2),
+                    spreadRadius: 3,
+                    blurRadius: 5,
+                    offset: Offset(0, 3),
+                  ),
+                ],
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: const Text(
+                'Welcome to the B-tech Guru',
+                style: TextStyle(fontSize: 24, color: Colors.white),
+              ),
             ),
             const SizedBox(height: 20),
             Expanded(

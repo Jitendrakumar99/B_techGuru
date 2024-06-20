@@ -5,7 +5,7 @@ import 'package:helloworld/subject1st/11eng.dart';
 import 'package:helloworld/subject1st/11c.dart';
 import 'package:helloworld/subject1st/11m1.dart';
 
-class SecondSemPage extends StatelessWidget {
+class SeventhSemPage extends StatelessWidget {
   final List<String> semesters = ['Physics', 'Chemestry', 'English', 'M1', 'C'];
 
   void _navigateToSemDetails(BuildContext context, String semester) {
