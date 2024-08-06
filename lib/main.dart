@@ -50,7 +50,6 @@ class _HomePageState extends State<HomePage> {
             buildListTile(context, Icons.school, 'Courses', CoursesPage()),
             buildListTile(context, Icons.notifications, 'Notification',
                 NotificationPage()),
-            buildListTile(context, Icons.settings, 'Settings', SettingsPage()),
           ],
         ),
       ),

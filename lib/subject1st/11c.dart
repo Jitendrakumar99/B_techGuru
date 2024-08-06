@@ -51,7 +51,7 @@ class C extends StatelessWidget {
     ),
     Note(
       title: 'Chapter 4: Mechanics',
-      content: getChapter2Content(),
+      content: getChapter4Content(),
     ),
     Note(
       title: 'Chapter 5: Thermodynamics',
@@ -106,4 +106,8 @@ String getChapter2Content() {
 
 String getChapter3Content() {
   return 'This chapter explains the laws of thermodynamics...';
+}
+
+String getChapter4Content() {
+  return 'This chapter explains the laws of thermmnzx c,m ., .,cmxzmodynamics...';
 }
